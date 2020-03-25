@@ -1,0 +1,171 @@
+package sarvesh;
+import java.util.*;
+public class Tic_Tac_Toe 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		String num[][] = new String [][]{{"0","1","2"},{"3","4","5"},{"6","7","8"}};
+		int gameover = 0, c=0,f=0;
+		int str[]=new int[] {33,33,33,33,33,33,33,33,33};
+		do
+		{
+			System.out.println("Player 1 : x & Player 2 : o");
+			for(int i=0;i<3;i++)
+			{
+				for(int j=0;j<3;j++)
+				{
+					if((i==0&&j==1)||(i==1&&j==1)||(i==2&&j==1))
+					{
+						System.out.print(" | "+num[i][j]+" | ");
+					}
+					else
+					{
+						System.out.print(" "+num[i][j]+" ");
+					}
+				}
+				System.out.println();
+				if(i==0||i==1)
+				{
+					System.out.println("-------------");
+				}
+			}
+			System.out.println("Enter Player 1 Input (i.e. no from 0 to 8)");
+			int Xin = sc.nextInt();
+			for(int i=0;i<9;i++)
+			{
+				if(str[i]==Xin)
+				{
+					f=1;
+					break;
+				}
+				else if(str[i]!=Xin)
+				{
+					str[c]=Xin;
+					c++;
+					f=0;
+					break;
+				}
+			}
+			
+			if(Xin>=0&&Xin<=8&&f==0)
+			{
+				switch(Xin)
+				{
+					case 0: num[0][0]="X";break;
+					case 1: num[0][1]="X";break;
+					case 2: num[0][2]="X";break;
+					case 3: num[1][0]="X";break;
+					case 4: num[1][1]="X";break;
+					case 5: num[1][2]="X";break;
+					case 6: num[2][0]="X";break;
+					case 7: num[2][1]="X";break;
+					case 8: num[2][2]="X";break;
+				}
+			}
+			else
+			{
+				System.out.println("Please enter a valid input");
+				break;
+			}
+			System.out.println("Player 1 : x & Player 2 : o");
+			for(int i=0;i<3;i++)
+			{
+				for(int j=0;j<3;j++)
+				{
+					if((i==0&&j==1)||(i==1&&j==1)||(i==2&&j==1))
+					{
+						System.out.print(" | "+num[i][j]+" | ");
+					}
+					else
+					{
+						System.out.print(" "+num[i][j]+" ");
+					}
+				}
+				System.out.println();
+				if(i==0||i==1)
+				{
+					System.out.println("-------------");
+				}
+			}
+			if((num[0][0]=="X"&&num[0][1]=="X"&&num[0][2]=="X")
+					||(num[1][0]=="X"&&num[1][1]=="X"&&num[1][2]=="X")
+					||(num[2][0]=="X"&&num[2][1]=="X"&&num[2][2]=="X")
+					||(num[0][0]=="X"&&num[1][0]=="X"&&num[2][0]=="X")
+					||(num[0][1]=="X"&&num[1][1]=="X"&&num[2][1]=="X")
+					||(num[0][2]=="X"&&num[1][2]=="X"&&num[2][2]=="X")
+					||(num[0][0]=="X"&&num[1][1]=="X"&&num[2][2]=="X")
+					||(num[0][2]=="X"&&num[1][1]=="X"&&num[2][0]=="X"))
+					{
+						System.out.println("Player 1 has won the game");
+						gameover=1;
+						break;
+					}
+			if(c==8)
+			{
+				System.out.println("The game is draw");
+				gameover=1;
+				break;
+			}
+			System.out.println("Enter Player 2 Input (i.e. no from 0 to 8)");
+			int Yin = sc.nextInt();
+			for(int i=0;i<9;i++)
+			{
+				if(str[i]==Yin)
+				{
+					f=1;
+					break;
+				}
+				else if(str[i]!=Yin)
+				{
+					str[c]=Yin;
+					c++;
+					f=0;
+					break;
+				}
+			}
+			if(Yin>=0&&Yin<=8&&f==0)
+			{
+				switch(Yin)
+				{
+					case 0: num[0][0]="O";break;
+					case 1: num[0][1]="O";break;
+					case 2: num[0][2]="O";break;
+					case 3: num[1][0]="O";break;
+					case 4: num[1][1]="O";break;
+					case 5: num[1][2]="O";break;
+					case 6: num[2][0]="O";break;
+					case 7: num[2][1]="O";break;
+					case 8: num[2][2]="O";break;
+				}
+			}
+			else
+			{
+				System.out.println("Please enter a valid input");
+				break;
+			}
+			if((num[0][0]=="O"&&num[0][1]=="O"&&num[0][2]=="O")
+					||(num[1][0]=="O"&&num[1][1]=="O"&&num[1][2]=="O")
+					||(num[2][0]=="O"&&num[2][1]=="O"&&num[2][2]=="O")
+					||(num[0][0]=="O"&&num[1][0]=="O"&&num[2][0]=="O")
+					||(num[0][1]=="O"&&num[1][1]=="O"&&num[2][1]=="O")
+					||(num[0][2]=="O"&&num[1][2]=="O"&&num[2][2]=="O")
+					||(num[0][0]=="O"&&num[1][1]=="O"&&num[2][2]=="O")
+					||(num[0][2]=="O"&&num[1][1]=="O"&&num[2][0]=="O"))
+					{
+						System.out.println("Player 2 has won the game");
+						gameover=1;
+						break;
+					}
+			if(c==8)
+			{
+				System.out.println("The game is draw");
+				gameover=1;
+				break;
+			}
+		}
+		while(gameover==0);
+		
+		sc.close();
+	}
+}
